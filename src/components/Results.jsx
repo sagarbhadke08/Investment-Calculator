@@ -8,14 +8,16 @@ export default function Results({ input }) {
     resultData[0].annualInvestment;
   //   console.log(resultData);
   // console.log(input);
+
   return (
     <>
       <table id="result">
         <thead>
           <tr>
             <th>Year</th>
+            <th>Invested Value</th>
             <th>Intrest (Year)</th>
-            <th>Total Intrest</th>
+            <th>Totoal Interest</th>
             <th>Invested Capital</th>
           </tr>
         </thead>
@@ -25,6 +27,7 @@ export default function Results({ input }) {
               yearData.valueEndOfYear -
               yearData.annualInvestment * yearData.year -
               initialInvestment;
+            const totalAmountInvested = yearData.valueEndOfYear - totalIntrest;
             return (
               <tr key={yearData.year}>
                 <td>{yearData.year}</td>
@@ -32,7 +35,7 @@ export default function Results({ input }) {
                 <td>{formatter.format(yearData.interest)}</td>
                 <td>{formatter.format(totalIntrest)}</td>
                 {/* <td>{yearData}</td> */}
-                <td></td>
+                <td>{formatter.format(totalAmountInvested)}</td>
                 <td></td>
               </tr>
             );
